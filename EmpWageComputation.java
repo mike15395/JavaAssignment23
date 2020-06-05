@@ -1,3 +1,12 @@
+interface ICompany{
+
+	public void addCompany(String company,int wage_per_hour,int max_hours, int maxhrs_month);
+	public void wagecalculation();
+	//public int getTotalWage(String company);
+
+}
+
+
 
 class CompanyEmpWage{
 
@@ -30,7 +39,7 @@ class CompanyEmpWage{
 
 
 
-class EmpWageBuilder {
+class EmpWageBuilder implements ICompany {
 
 
 	public CompanyEmpWage[] companyEmpWageArray;
@@ -102,11 +111,12 @@ class EmpWageComputation{
 
 		System.out.println("Welcome to Employee Wage Computation Program");
 
-		EmpWageBuilder obj1 = new EmpWageBuilder();
+		ICompany obj1 = new EmpWageBuilder();
 		obj1.addCompany("Flipkart",44,111,3);
 		obj1.addCompany("Amazon",34,121,4);
 		//obj1.toString();
 		obj1.wagecalculation();
+		//System.out.println("Total wage for Dmart" + obj1.getTotalWage("Dmart"));
 
 	}
 
