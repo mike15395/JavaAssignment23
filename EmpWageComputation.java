@@ -1,9 +1,19 @@
-class EmpWageCalc {
+class EmpWageBuilder {
 
-	public static final int wage_per_hour_g = 20;
-	public static final int maxhrs_month_g=20, max_hours_g=100; 
+	public final String company;
+	public final int wage_per_hour,
+			max_hours,
+			maxhrs_month;
 
-	public int wagecalculation(String company ,int wage_per_hour,int max_hours, int maxhrs_month){
+	EmpWageBuilder(String company,int wage_per_hour,int max_hours,int maxhrs_month)
+	{
+		this.company=company;
+		this.wage_per_hour=wage_per_hour;
+		this.max_hours=max_hours;
+		this.maxhrs_month=maxhrs_month;
+	} 
+
+	public int wagecalculation(){
 
 		int totalwage=0,total_emphrs=0,total_working_days=0, 
 			wage=0 , emphrs=0;
@@ -44,11 +54,11 @@ class EmpWageComputation{
 
 		System.out.println("Welcome to Employee Wage Computation Program");
 
-		EmpWageCalc obj = new EmpWageCalc();
-		obj.wagecalculation("Flipkart",30,100,40);
-		obj.wagecalculation("Amazon",40,120,45);
-		obj.wagecalculation("Ebay",34,123,54);
-		obj.wagecalculation("Jobong",36,121,42);
+		EmpWageBuilder obj1 = new EmpWageBuilder("Flipkart",40,100,33);
+		obj1.wagecalculation();
+		
+		EmpWageBuilder obj2 = new EmpWageBuilder("Amazon",34,121,44);
+		obj2.wagecalculation();
 
 	}
 
